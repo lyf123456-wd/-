@@ -75,6 +75,7 @@ def datingClassTest():
     
     print(f"总错误数: {errorCount}")  
     print(f"错误率: {errorCount / float(numTestVecs)}")
+    
 #datingClassTest()
 
 def classify0(inX, dataSet, labels, k):
