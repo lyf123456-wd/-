@@ -50,6 +50,7 @@ ax.set_title('特征关系散点图')
 
 def autoNorm(dataSet):
     #数据进行归一化
+
     minVals = dataSet.min(0) # 计算每列的最小值
     maxVals = dataSet.max(0)  # 计算每列的最大值
     ranges = maxVals - minVals  # 计算每列数据的范围（最大值-最小值）
@@ -61,6 +62,7 @@ def autoNorm(dataSet):
 
 def datingClassTest():
     # 使用留出法：设置测试集比例（hold-out比例），这里使用50%的数据作为测试集
+
     hoRatio = 0.50
     datingDataMat,datingLabels=file2matrix(file_path)
     normMat,ranges,minVals=autoNorm(datingDataMat)
@@ -75,11 +77,12 @@ def datingClassTest():
     
     print(f"总错误数: {errorCount}")  
     print(f"错误率: {errorCount / float(numTestVecs)}")
-    
+
 #datingClassTest()
 
 def classify0(inX, dataSet, labels, k):
    #KNN分类核心代码
+
     dataSetSize = dataSet.shape[0]
     diffMat = tile(inX, (dataSetSize, 1)) - dataSet
     sqDiffMat = diffMat**2
@@ -96,8 +99,8 @@ def classify_person():
     """
     交互式输入三项特征，使用约会数据集做 KNN 分类，并输出印象结果。
     """
+
     result_list = ['不感兴趣', '有点兴趣', '非常有兴趣']
-    
     try:
         percent_tats = input("业余时间花费在视频游戏上的时间比率(输入q退出):")
         if percent_tats.lower() in ['q', 'exit']:
@@ -130,3 +133,4 @@ if __name__ == "__main__":
         if flag is None:  
             print("程序已退出。")
             break
+        
